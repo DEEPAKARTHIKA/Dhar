@@ -1,0 +1,171 @@
+:root {
+    --primary: #fff;
+    --bg-color: rgb(28, 29, 36); /* Fallback color if images fail to load */
+    --bg-envelope-color: #f7f3e9;
+    --envelope-tab: #e7d6ba;
+    --envelope-cover: #d4b897;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --txt-color: #333;
+    --heart-color: #ff007f;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    background-size: fill; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-color: #333;
+    transition: background-image 0.5s ease-in-out; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+.container {
+    display: grid;
+    place-items: center;
+    
+}
+
+
+.envelope-wrapper {
+    background: var(--bg-envelope-color);
+    box-shadow: 0 0 30px var(--shadow-color);
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.4s ease;
+}
+
+.envelope-wrapper:hover {
+    transform: scale(1.05);
+}
+
+.envelope {
+    position: relative;
+    width: 320px;
+    height: 240px;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 140px solid var(--envelope-tab);
+    border-right: 160px solid transparent;
+    border-left: 160px solid transparent;
+    transform-origin: top;
+    transition: all 0.7s ease-in-out;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 140px solid transparent;
+    border-right: 160px solid var(--envelope-cover);
+    border-bottom: 110px solid var(--envelope-cover);
+    border-left: 160px solid var(--envelope-cover);
+}
+
+.letter {
+    position: absolute;
+    right: 20%;
+    bottom: 0;
+    width: 55%;
+    height: 85%;
+    background: var(--primary);
+    text-align: center;
+    transition: all 0.7s ease-in-out;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* .letter .text {
+    font-family: 'Poppins', sans-serif;
+    color: var(--txt-color);
+    text-align: left;
+    font-size: 12px;
+} */
+.letter .text {
+    font-family: 'Poppins', sans-serif;
+    color: var(--txt-color);
+    text-align: left;
+    font-size: 14px; /* Increased font size for better readability */
+    line-height: 1.5; /* Increased line height for better spacing */
+    margin: 10px 0; /* Added margin for spacing */
+    padding: 10px; /* Added padding for better text separation */
+    overflow-wrap: break-word; /* Prevent long words from breaking layout */
+    max-height: 150px; /* Set a max height to avoid overwhelming text */
+    overflow: auto; /* Allow scrolling if the text exceeds the max height */
+}
+
+.heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: var(--heart-color);
+    z-index: 4;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: transform 0.5s ease-in-out 0.7s;
+    box-shadow: 0 1px 8px var(--shadow-color);
+    cursor: pointer;
+}
+
+.heart:before, 
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--heart-color);
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -8px;
+}
+
+.heart:after {
+    right: 8px;
+}
+
+.flap > .envelope:before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.flap > .envelope .letter {
+    bottom: 100px;
+    transform: scale(1.2);
+    transition-delay: 0.8s;
+}
+
+.flap > .heart {
+    transform: rotate(90deg);
+    transition-delay: 0.5s;
+}
+.overlay {
+    position: absolute; /* Position the overlay */
+    top: 0; /* Cover the entire viewport */
+    left: 0; /* Cover the entire viewport */
+    right: 0; /* Cover the entire viewport */
+    bottom: 0; /* Cover the entire viewport */
+    background-size: cover; /* Ensure the overlay covers the whole area */
+    background-position: center; /* Center the overlay image */
+    background-repeat: no-repeat; /* Prevent the overlay from repeating */
+    opacity: 0; /* Start with the overlay hidden */
+    transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+    z-index: 10; /* Ensure the overlay is above the background */
+}
