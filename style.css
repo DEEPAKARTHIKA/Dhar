@@ -96,6 +96,7 @@ body {
     text-align: left;
     font-size: 12px;
 } */
+
 .letter .text {
     font-family: 'Poppins', sans-serif;
     color: var(--txt-color);
@@ -128,6 +129,7 @@ body {
         max-height: 100px;
     }
 }
+
 
 .heart {
     position: absolute;
