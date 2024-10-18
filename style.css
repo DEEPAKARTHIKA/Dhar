@@ -106,25 +106,26 @@ body {
     padding: 10px;
     overflow-wrap: break-word;
     max-height: 150px;
-    overflow: auto;
+    overflow-y: auto; /* Ensure vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .letter .text {
-        font-size: 12px; /* Slightly smaller font size for smaller screens */
-        padding: 8px; /* Reduced padding for better fit */
+        font-size: 12px;
+        padding: 8px;
         margin: 8px 0;
-        max-height: 120px; /* Reduced max height to fit smaller screen size */
+        max-height: 120px;
     }
 }
 
 @media (max-width: 480px) {
     .letter .text {
-        font-size: 11px; /* Further reduce font size for very small screens */
+        font-size: 11px;
         padding: 6px;
         margin: 6px 0;
-        max-height: 100px; /* Further adjust max height */
+        max-height: 100px;
     }
 }
 
