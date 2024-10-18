@@ -100,14 +100,34 @@ body {
     font-family: 'Poppins', sans-serif;
     color: var(--txt-color);
     text-align: left;
-    font-size: 14px; /* Increased font size for better readability */
-    line-height: 1.5; /* Increased line height for better spacing */
-    margin: 10px 0; /* Added margin for spacing */
-    padding: 10px; /* Added padding for better text separation */
-    overflow-wrap: break-word; /* Prevent long words from breaking layout */
-    max-height: 150px; /* Set a max height to avoid overwhelming text */
-    overflow: auto; /* Allow scrolling if the text exceeds the max height */
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 10px 0;
+    padding: 10px;
+    overflow-wrap: break-word;
+    max-height: 150px;
+    overflow: auto;
 }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .letter .text {
+        font-size: 12px; /* Slightly smaller font size for smaller screens */
+        padding: 8px; /* Reduced padding for better fit */
+        margin: 8px 0;
+        max-height: 120px; /* Reduced max height to fit smaller screen size */
+    }
+}
+
+@media (max-width: 480px) {
+    .letter .text {
+        font-size: 11px; /* Further reduce font size for very small screens */
+        padding: 6px;
+        margin: 6px 0;
+        max-height: 100px; /* Further adjust max height */
+    }
+}
+
 
 .heart {
     position: absolute;
